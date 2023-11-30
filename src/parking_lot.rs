@@ -38,7 +38,7 @@ impl ParkingLot {
     pub fn display_parking_lot(&self) {
         println!("Cars in the parking lot:");
         for car in &self.cars {
-            println!("{} {} {}", car.get_make(), car.get_model(), car.get_year());
+            println!("{} | {} | {}", car.get_make(), car.get_model(), car.get_year());
         }
     }
 }
