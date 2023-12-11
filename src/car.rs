@@ -3,16 +3,16 @@
 pub struct Car {
     make: String,
     model: String,
-    year: i32, // Year of the car
+    car_plate: String // number plate of the car
 }
 
 impl Car {
-    // Create a new car instance with the given make, model, and year.
-    pub fn new(make: &str, model: &str, year: i32) -> Car {
+    // Create a new car instance with the given make, model, and  plate.
+    pub fn new(make: &str, model: &str, car_plate: &str) -> Car {
         Car {
             make: make.to_string(),
             model: model.to_string(),
-            year,
+            car_plate:car_plate.to_string(),
         }
     }
 
@@ -26,8 +26,8 @@ impl Car {
         &self.model
     }
 
-    // Get the year of the car.
-    pub fn get_year(&self) -> i32 {
-        self.year
+    // Get the car_plate of the car.
+    pub fn get_car_plate(&self) -> &str {
+        &self.car_plate
     }
 }

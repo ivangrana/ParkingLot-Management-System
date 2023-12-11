@@ -18,14 +18,14 @@ The `Car` struct represents a car with the following fields:
 
 - `make`: The manufacturer or brand of the car (String).
 - `model`: The specific model of the car (String).
-- `year`: The manufacturing year of the car (i32).
+- `car_plate`: The plate of the car (i32).
 
 **Methods:**
 
-- `new(make: &str, model: &str, year: i32) -> Car`: Creates a new `Car` instance.
+- `new(make: &str, model: &str, car_plate: &str) -> Car`: Creates a new `Car` instance.
 - `get_make() -> &str`: Returns the make of the car.
 - `get_model() -> &str`: Returns the model of the car.
-- `get_year() -> i32`: Returns the manufacturing year of the car.
+- `get_car_plate() -> &str`: Returns the car plate of the car.
 
 ### ParkingLot Struct (`parking_lot.rs`)
 
@@ -44,4 +44,4 @@ The `ParkingLot` struct manages a collection of cars using a vector. It has the 
 
 1. **Create a Car:**
    ```rust
-   let car_example = Car::new("Toyota", "Corolla", 2013);
+   let car_example = Car::new("Toyota", "Corolla", "FFH-672");

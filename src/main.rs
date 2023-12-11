@@ -13,8 +13,9 @@ fn main() {
     loop {
         println!("[1] - Add a car to the parking lot");
         println!("[2] - Display the cars of the parking lot");
-        println!("[3] -  Remove a car from the parking lot");
-        println!("[4] -  Exit");
+        println!("[3] - Remove a car from the parking lot");
+        println!("[4] - Exit");
+        println!("[5] - Export database as CSV");
 
         let mut choice = String::new();
 
@@ -32,8 +33,8 @@ fn main() {
                 // Create an example car.
                 let make = get_user_input("Enter car make: ");
                 let model = get_user_input("Enter car model: ");
-                let year = get_user_input("Enter car year: ");
-                let car_example = Car::new(&make, &model, year.parse().unwrap());
+                let car_plate = get_user_input("Enter car plate: ");
+                let car_example = Car::new(&make, &model, &car_plate);
                 parking_lot.insert_car(car_example);
             }
             2 => {
@@ -41,15 +42,19 @@ fn main() {
                 parking_lot.display_parking_lot();
             }
             3 => {
-                // Remove a car from the parking lot based on make, model, and year.
+                // Remove a car from the parking lot based on make, model, and car_plate.
                 let make = get_user_input("Enter car make to remove: ");
                 let model = get_user_input("Enter car model to remove: ");
-                let year = get_user_input("Enter car year to remove: ");
-                parking_lot.remove_car(&make, &model, year.parse().unwrap());
+                let car_plate = get_user_input("Enter car plate to remove: ");
+                parking_lot.remove_car(&make, &model, &car_plate);
             }
             4 => {
-                println!("Exiting the program.");
+                println!("Exiting the program !");
                 break;
+            }
+            5 => {
+                // Export the contents of the parking lot to a CSV file.
+                parking_lot.export_to_json();
             }
             _ => {
                 println!("Invalid choice. Please enter a number between 1 and 4.");
