@@ -15,7 +15,6 @@ fn main() {
         println!("[2] - Display the cars of the parking lot");
         println!("[3] - Remove a car from the parking lot");
         println!("[4] - Exit");
-        println!("[5] - Export database as CSV");
 
         let mut choice = String::new();
 
@@ -31,6 +30,8 @@ fn main() {
         match choice {
             1 => {
                 // Create an example car.
+                std::process::Command::new("clear").status().unwrap();
+
                 let make = get_user_input("Enter car make: ");
                 let model = get_user_input("Enter car model: ");
                 let car_plate = get_user_input("Enter car plate: ");
@@ -39,6 +40,8 @@ fn main() {
             }
             2 => {
                 // Display the contents of the parking lot.
+                std::process::Command::new("clear").status().unwrap();
+
                 parking_lot.display_parking_lot();
             }
             3 => {
@@ -51,10 +54,6 @@ fn main() {
             4 => {
                 println!("Exiting the program !");
                 break;
-            }
-            5 => {
-                // Export the contents of the parking lot to a CSV file.
-                parking_lot.export_to_json();
             }
             _ => {
                 println!("Invalid choice. Please enter a number between 1 and 4.");

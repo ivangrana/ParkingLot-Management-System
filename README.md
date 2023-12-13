@@ -18,7 +18,7 @@ The `Car` struct represents a car with the following fields:
 
 - `make`: The manufacturer or brand of the car (String).
 - `model`: The specific model of the car (String).
-- `car_plate`: The plate of the car (i32).
+- `car_plate`: The plate of the car (String).
 
 **Methods:**
 
@@ -36,8 +36,8 @@ The `ParkingLot` struct manages a collection of cars using a vector. It has the 
 **Methods:**
 
 - `new() -> ParkingLot`: Creates a new `ParkingLot` instance with an empty vector of cars.
-- `insert_car(car: Car)`: Inserts a car into the parking lot.
-- `remove_car(make: &str, model: &str, year: i32) -> Option<Car>`: Removes a car from the parking lot based on make, model, and year.
+- `insert_car(car: Car)`: Inserts a car into the parking lot. Checks for duplicates before insertion.
+- `remove_car(make: &str, model: &str, car_plate: &str) -> Option<Car>`: Removes a car from the parking lot based on make, model, and car plate.
 - `display_parking_lot()`: Displays the list of cars in the parking lot.
 
 ## Usage
